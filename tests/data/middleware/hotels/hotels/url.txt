@@ -1,0 +1,1 @@
+`http://${p.hotels.middleware.host}:${p.hotels.middleware.port}/hotels`

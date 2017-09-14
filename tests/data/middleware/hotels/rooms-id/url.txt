@@ -1,0 +1,1 @@
+`http://${p.hotels.middleware.host}:${p.hotels.middleware.port}/hotels/${p.hotels.hotel.id}/rooms/${p.hotels.hotel.rooms[0].rates[0].rateToken}`

@@ -1,0 +1,9 @@
+packageGroup:VHI,STANDALONE
+source:AUTO
+checkIn:`${require('moment')().add(180, 'days').utc().format('YYYY-MM-DD')}`
+checkOut:`${require('moment')().add(185, 'days').utc().format('YYYY-MM-DD')}`
+//miami
+zoneId:13528
+roomsPerHotel:1
+//duplo
+rooms:30,30
