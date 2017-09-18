@@ -1,0 +1,15 @@
+`{
+  "newProp": "${p.env}",
+  "orderItems": {
+    "newProp": 12345,
+    "hotelBookings": [
+      {
+        "rooms": [
+          {
+            "newProp": 1234
+          }
+        ]
+      }
+    ]
+  }
+}`

@@ -1,0 +1,18 @@
+{
+  "salesType": "CVC",
+  "currency": "BRL",
+  "opportunityId": 123432,
+  "reservationId": 12345678,
+  "orderItems": {
+    "teste": 12345,
+    "hotelBookings": [
+      {
+        "rooms": [
+          {
+            "rateToken": "asdf"
+          }
+        ]
+      }
+    ]
+  }
+}
