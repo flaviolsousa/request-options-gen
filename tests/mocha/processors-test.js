@@ -41,5 +41,17 @@ describe('processors-test', function () {
     //console.log(JSON.stringify(options, null, 2));
     assert.ok(options.env && options.env.length > 0, 'js not work');
   });
+  
+  it('Test Config JS', function () {
+    var options = merge(true, defaultOptions);
+    var files = filesPath.sync({
+      path: '.',
+      filters: 'config.js',
+    });
+
+    configJs(options, files[0]);
+    //console.log(JSON.stringify(options, null, 2));
+    assert.ok(options.env && options.env.length > 0, 'js not work');
+  });
 
 });
