@@ -81,3 +81,83 @@ Body:
 	]
 }
 ```
+
+---
+
+### Specials Files 
+Named files that end with: 
+
+#### url.txt
+  Generate:
+  ```
+  {
+    "url": "${value}"
+  }
+  ```
+  Sample File 1:
+  ```
+  http://google.com
+    ↕
+  {
+    "url": "http://google.com"
+  }
+  ```
+  Sample File 2:
+  ```
+  `http://${p.host}:${p.port}.com/my-url/`
+    ↕
+  {
+    "url": "http://my-host:8080.com/my-url/"
+  }
+  ```
+
+#### qs.txt
+  Generate:
+  ```
+  {
+    "qs": {
+      "${attr-name-1}": "${attr-value}",
+      "${attr-name-2}": "${attr-value}",
+      "${attr-name-n}": "${attr-value}"
+    }
+  }
+  ```
+  Sample File:
+  ```
+  id:`require('uuid/v4')()`
+  page:2
+    ↕
+  {
+    "qs": {
+      "id": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
+      "page": "2"
+    }
+  }
+  ```
+
+#### headers.txt
+  ```
+  {
+    "headers": {
+      "${attr-name-1}": "${attr-value}",
+      "${attr-name-2}": "${attr-value}",
+      "${attr-name-n}": "${attr-value}"
+    }
+  }
+  ```
+  Sample File:
+  ```
+  Pragma:no-cache
+  Cache-Control:no-cache
+  x-time:`new Date().toISOString()`
+    ↕
+  {
+    "headers": {
+      "Pragma": "no-cache",
+      "Cache-Control": "no-cache",
+      "x-time": "2017-10-02T14:11:35.511Z"
+    }
+  }
+  ```
+
+
