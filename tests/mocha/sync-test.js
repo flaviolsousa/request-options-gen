@@ -1,10 +1,10 @@
 'use strict';
 
-var assert = require('assert');
-var request = require('request');
+const assert = require('assert');
+const request = require('request');
 
-var rog = require('../../lib/request-options-gen');
-var log = require('../../lib/log');
+const rog = require('../../lib/request-options-gen');
+const log = require('../../lib/log');
 
 describe('main', function () {
   // only skip
@@ -20,7 +20,7 @@ describe('main', function () {
       basePath: 'tests/data',
       path: 'all/json/subfolder'
     };
-    var data = rog.sync(options);
+    var data = rog.gen(options);
 
     assert.ok(data.env === 'PRD_override', 'data.env -> Overide js not work');
 
@@ -43,10 +43,10 @@ describe('main', function () {
       path: 'reqres/list-users',
       // verbose: true,
     };
-    var data = rog.sync(options);
+    var data = rog.gen(options);
 
     log(options, 'request return data: ' + JSON.stringify(data));
-    request(data, function (error, response, body) {
+    request(data.options, function (error, response, body) {
       log(options, 'request return error: ' + JSON.stringify(error));
       log(options, 'request return body: ' + JSON.stringify(body));
 
@@ -69,10 +69,10 @@ describe('main', function () {
       path: 'reqres/list-users/page3',
       // verbose: true,
     };
-    var data = rog.sync(options);
+    var data = rog.gen(options);
 
     log(options, 'request return data: ' + JSON.stringify(data));
-    request(data, function (error, response, body) {
+    request(data.options, function (error, response, body) {
       log(options, 'request return error: ' + JSON.stringify(error));
       log(options, 'request return body: ' + JSON.stringify(body));
 

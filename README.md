@@ -12,7 +12,7 @@ Super simple to use:
 var rog = require('request-options-gen');
 var request = require('request');
 
-var options = rog.sync({
+var options = rog.gen({
   basePath: 'tests/data',
   path: 'reqres/list-users'
 });
@@ -160,4 +160,42 @@ Named files that end with:
   }
   ```
 
+#### body.txt
+  ```
+  {
+    "body": "${value}"
+  }
+  ```
+
+#### config.js
+  Generates temporary values to be used by other processors.
+  ##### Sample:
+  ###### data/main-config.js
+  ```js
+  'use strict';
+  module.exports = function (p) {
+    p.env = process.env.ENVIRONMENT || 'PRD';
+    p.hotels = p.hotels || {};
+    p.hotels.middleware = p.hotels.middleware || {};
+
+    switch (p.env) {
+      case 'PRD':
+        p.hotels.middleware.host = 'prod.sample.com.br';
+        p.hotels.middleware.port = '80';
+        break;
+      default:
+        p.hotels.middleware.host = '127.0.0.1';
+        p.hotels.middleware.port = '7011';
+    }
+  };
+  ```
+  ###### data/hotel/url.txt
+  ```
+  `http://${p.hotels.middleware.host}:${p.hotels.middleware.port}/hotels`
+  ```
+  Generate:
+  - if ENVIRONMENT == PRD: http://prod.sample.com.br:80/hotels
+  - if ENVIRONMENT <> PRD: http://127.0.0.1:7011/hotels
+
+  
 
