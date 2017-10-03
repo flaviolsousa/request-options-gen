@@ -16,11 +16,11 @@ describe('main', function () {
   */
 
   it('Basic test all', function (done) {
-    var options = {
+    const options = {
       basePath: 'tests/data',
       path: 'all/json/subfolder'
     };
-    var data = rog.gen(options);
+    let data = rog.gen(options);
 
     assert.ok(data.env === 'PRD_override', 'data.env -> Overide js not work');
 
@@ -38,12 +38,12 @@ describe('main', function () {
   });
 
   it('reqres\list-users', function (done) {
-    var options = {
+    const options = {
       basePath: 'tests/data',
       path: 'reqres/list-users',
       // verbose: true,
     };
-    var data = rog.gen(options);
+    let data = rog.gen(options);
 
     log(options, 'request return data: ' + JSON.stringify(data));
     request(data.options, function (error, response, body) {
@@ -64,12 +64,12 @@ describe('main', function () {
   });
 
   it('reqres\list-users - overide page to 3', function (done) {
-    var options = {
+    const options = {
       basePath: 'tests/data',
       path: 'reqres/list-users/page3',
       // verbose: true,
     };
-    var data = rog.gen(options);
+    let data = rog.gen(options);
 
     log(options, 'request return data: ' + JSON.stringify(data));
     request(data.options, function (error, response, body) {
