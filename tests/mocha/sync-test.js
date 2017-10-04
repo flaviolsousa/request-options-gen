@@ -7,6 +7,8 @@ const rog = require('../../lib/request-options-gen');
 const log = require('../../lib/log');
 
 describe('main', function () {
+
+  log({ verbose: true }, "Init");
   // only skip
   /*
   it.only('TMP TEST', function () {
@@ -37,7 +39,7 @@ describe('main', function () {
     done();
   });
 
-  it('reqres\list-users', function (done) {
+  it('reqres\\list-users', function (done) {
     const options = {
       basePath: 'tests/data',
       path: 'reqres/list-users',
@@ -63,7 +65,7 @@ describe('main', function () {
 
   });
 
-  it('reqres\list-users - overide page to 3', function (done) {
+  it('reqres\\list-users - overide page to 3', function (done) {
     const options = {
       basePath: 'tests/data',
       path: 'reqres/list-users/page3',
@@ -83,6 +85,45 @@ describe('main', function () {
 
       assert.ok(body.page === 3, 'Do not return page == 2');
       assert.ok(body.data.length > 0, 'Do not return page == 2');
+
+      done();
+    });
+
+  });
+
+  it('reqres\\create-users - POST', function (done) {
+    const options = {
+      basePath: 'tests/data',
+      path: 'reqres/create-user',
+      // verbose: true,
+    };
+    rog.gen(options).request(function (error, response, body) {
+      log(options, 'request return error: ' + JSON.stringify(error));
+      log(options, 'request return body: ' + JSON.stringify(body));
+
+      assert.ok(!error, 'request return error: ' + JSON.stringify(error));
+      assert.ok(body, 'request return body: ' + JSON.stringify(body));
+
+      body = JSON.parse(body);
+
+      assert.ok(body.id > 0, 'User not created');
+
+      describe('POS -> reqres\\create-users - POST', function () {
+        it('reqres\\update-user - PUT', function (done) {
+          options.user = body;
+          options.path = 'reqres/update-user';
+          rog.gen(options).request(function (error, response, body) {
+            assert.ok(!error, 'request return error: ' + JSON.stringify(error));
+            assert.ok(body, 'request return body: ' + JSON.stringify(body));
+
+            log(options, body);
+            body = JSON.parse(body);
+
+            assert.ok(body.updatedAt, 'User not updated');
+            done();
+          });
+        });
+      });
 
       done();
     });

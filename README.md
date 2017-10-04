@@ -6,7 +6,11 @@ JS Library to generate options for [request library](https://www.npmjs.com/packa
 [![codecov](https://codecov.io/gh/flaviolsousa/request-options-gen/branch/master/graph/badge.svg)](https://codecov.io/gh/flaviolsousa/request-options-gen)
 [![dependencies Status](https://david-dm.org/flaviolsousa/request-options-gen/status.svg)](https://david-dm.org/flaviolsousa/request-options-gen)
 [![Known Vulnerabilities](https://snyk.io/test/github/flaviolsousa/request-options-gen/badge.svg)](https://snyk.io/test/github/flaviolsousa/request-options-gen)
-
+Install
+```
+npm install --save request
+npm install --save request-options-gen
+```
 Super simple to use:
 ```
 var rog = require('request-options-gen');
@@ -82,9 +86,72 @@ Body:
 }
 ```
 
+## Table of contents
+- [Methods](#methods)
+- [Specials Files](#specials-files)
+- [Options](#options)
+
+[back to top](#table-of-contents)
+
 ---
 
-### Specials Files 
+## Methods
+
+See: [Options](#options)
+Method 1: _Without edit options_
+```
+const rog = require('request-options-gen');
+rog.gen(options).request(callback);
+```
+
+Method 2: _Permit edit options_
+```
+const request = require('request');
+const rog = require('request-options-gen');
+let data = rog.gen(options);
+request(data.options, callback);
+```
+
+[back to top](#table-of-contents)
+
+---
+
+## Options
+
+<dl>
+  <dt>basePath</dt>
+  <dd>
+    <em>Default: <b>.</b> (current folder)</em>
+    <br/>
+    Initial folder search
+    <br/>
+    <em>The files on this path will not be returned</em>
+    <br/>
+    <code>./my/relative/initial/path</code>
+  </dd>
+  
+  <dt>Path</dt>
+  <dd>
+    <em><b>Required</b></em>
+    <br/>
+    Specials files on this path will be processed
+    <br/>
+    <code>./folders/to/search/files/dir-1/dir-2/dir-n</code>
+  </dd>
+
+  <dt>verbose</dt>
+  <dd>
+    <em>Default: <b>false</b></em>
+    <br/>
+    Show logs on console
+  </dd>
+</dl>
+
+[back to top](#table-of-contents)
+
+---
+
+## Specials Files 
 Named files that end with: 
 
 #### url.txt
@@ -197,5 +264,6 @@ Named files that end with:
   - if ENVIRONMENT == PRD: http://prod.sample.com.br:80/hotels
   - if ENVIRONMENT <> PRD: http://127.0.0.1:7011/hotels
 
-  
+[back to top](#table-of-contents)
 
+---

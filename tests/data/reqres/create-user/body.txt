@@ -1,0 +1,4 @@
+`{
+    "name": "${["Olivia", "Liam", "William", "Sophia", "Isabella", "James", "Mia", "Jacob", "Abigail", "Michael", "Emily"][Math.floor(Math.random() * 11)]}",
+    "job": "programmer"
+}`
