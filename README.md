@@ -6,12 +6,14 @@ JS Library to generate options for [request library](https://www.npmjs.com/packa
 [![codecov](https://codecov.io/gh/flaviolsousa/request-options-gen/branch/master/graph/badge.svg)](https://codecov.io/gh/flaviolsousa/request-options-gen)
 [![dependencies Status](https://david-dm.org/flaviolsousa/request-options-gen/status.svg)](https://david-dm.org/flaviolsousa/request-options-gen)
 [![Known Vulnerabilities](https://snyk.io/test/github/flaviolsousa/request-options-gen/badge.svg)](https://snyk.io/test/github/flaviolsousa/request-options-gen)
-Install
+
+
+## Install
 ```
 npm install --save request
 npm install --save request-options-gen
 ```
-Super simple to use:
+## Super simple to use:
 ```
 var rog = require('request-options-gen');
 var request = require('request');
