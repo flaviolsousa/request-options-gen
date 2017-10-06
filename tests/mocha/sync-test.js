@@ -4,7 +4,7 @@ const assert = require('assert');
 const request = require('request');
 
 const rog = require('../../lib/request-options-gen');
-const log = require('../../lib/log');
+const log = require('log-verbose');
 
 describe('main', function () {
 

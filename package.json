@@ -1,6 +1,6 @@
 {
   "name": "request-options-gen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "generates the options object to request library from a hierarchy of files",
   "main": "./lib/request-options-gen",
   "scripts": {
@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "files-path": "^1.1.0",
+    "log-verbose": "^1.0.0",
     "merge": "^1.2.0"
   }
 }
