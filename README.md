@@ -2,6 +2,7 @@
 JS Library to generate options for [request library](https://www.npmjs.com/package/request) by templates files
 
 [![NPM version](https://img.shields.io/npm/v/request-options-gen.svg)](https://www.npmjs.com/package/request-options-gen)
+[![npm](https://img.shields.io/npm/dt/request-options-gen.svg)](https://github.com/flaviolsousa/request-options-gen)
 [![Build Status](https://travis-ci.org/flaviolsousa/request-options-gen.svg?branch=master)](https://travis-ci.org/flaviolsousa/request-options-gen)
 [![codecov](https://codecov.io/gh/flaviolsousa/request-options-gen/branch/master/graph/badge.svg)](https://codecov.io/gh/flaviolsousa/request-options-gen)
 [![dependencies Status](https://david-dm.org/flaviolsousa/request-options-gen/status.svg)](https://david-dm.org/flaviolsousa/request-options-gen)

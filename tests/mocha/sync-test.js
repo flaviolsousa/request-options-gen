@@ -29,7 +29,8 @@ describe('main', function () {
     assert.ok(data.options.qs.source === 'CVC', 'source -> Overide qs on subfolder');
     assert.ok(data.options.qs.preferences === 'persistLog', 'preferences-> New qs on subfolder');
     assert.ok(data.options.qs.zoneId === '13528', 'zoneId -> qs on first folder');
-
+    assert.ok(data.options.qs.checkIn.endsWith('T12:00:00'), 'checkIn without time: ' + data.options.qs.checkIn);
+    
     assert.ok(data.options.headers['Gtw-Agent-Sign'] === 'LOJ', 'Gtw-Agent-Sign -> Overide headers on subfolder');
     assert.ok(data.options.headers['Gtw-WebSocket-Id'] === 'qwertyu', 'Gtw-WebSocket-Id -> New overide on subfolder');
     assert.ok(data.options.headers['Gtw-Username'] === 'MTZCPD262', 'Gtw-Username -> header on first folder');

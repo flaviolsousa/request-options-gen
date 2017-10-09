@@ -1,6 +1,6 @@
 packageGroup:VHI,STANDALONE
 source:AUTO
-checkIn:`${require('moment')().add(180, 'days').utc().format('YYYY-MM-DD')}`
+checkIn:`${require('moment')().add(180, 'days').utc().format('YYYY-MM-DD')}T12:00:00`
 checkOut:`${require('moment')().add(185, 'days').utc().format('YYYY-MM-DD')}`
 //miami
 zoneId:13528
