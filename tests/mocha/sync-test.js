@@ -8,7 +8,7 @@ const log = require('log-verbose');
 
 describe('sync-test', function () {
 
-  const verbose = true;
+  const verbose = false;
 
   log({ verbose: true }, "Init");
   // only skip
