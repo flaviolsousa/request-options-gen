@@ -6,7 +6,9 @@ const request = require('request');
 const rog = require('../../lib/request-options-gen');
 const log = require('log-verbose');
 
-describe('main', function () {
+describe('sync-test', function () {
+
+  const verbose = true;
 
   log({ verbose: true }, "Init");
   // only skip
@@ -44,7 +46,7 @@ describe('main', function () {
     const options = {
       basePath: 'tests/data',
       path: 'reqres/list-users',
-      // verbose: true,
+      verbose,
     };
     let data = rog.gen(options);
 
@@ -59,18 +61,18 @@ describe('main', function () {
       body = JSON.parse(body);
 
       assert.ok(body.page === 2, 'Do not return page == 2');
-      assert.ok(body.data.length > 0, 'Do not return page == 2');
+      assert.ok(body.data.length > 0, 'request without body.data');
 
       done();
     });
 
   });
 
-  it('reqres\\list-users - overide page to 3', function (done) {
+  it('reqres\\list-users - override page to 3', function (done) {
     const options = {
       basePath: 'tests/data',
       path: 'reqres/list-users/page3',
-      // verbose: true,
+      verbose,
     };
     let data = rog.gen(options);
 
@@ -78,14 +80,15 @@ describe('main', function () {
     request(data.options, function (error, response, body) {
       log(options, 'request return error: ' + JSON.stringify(error));
       log(options, 'request return body: ' + JSON.stringify(body));
+      
 
       assert.ok(!error, 'request return error: ' + JSON.stringify(error));
       assert.ok(body, 'request return body: ' + JSON.stringify(body));
 
+
       body = JSON.parse(body);
 
-      assert.ok(body.page === 3, 'Do not return page == 2');
-      assert.ok(body.data.length > 0, 'Do not return page == 2');
+      assert.ok(body.page == 3, 'Do not return page == 3');
 
       done();
     });
@@ -96,7 +99,7 @@ describe('main', function () {
     const options = {
       basePath: 'tests/data',
       path: 'reqres/create-user',
-      // verbose: true,
+      verbose,
     };
     rog.gen(options).request(function (error, response, body) {
       log(options, 'request return error: ' + JSON.stringify(error));
